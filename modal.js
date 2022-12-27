@@ -26,6 +26,7 @@ function launchModal() {
 // Close modal form
 function closeModal() {
   modalbg.style.display = "none";
+  location.reload();
 }
 
 // Close modal event
@@ -33,9 +34,11 @@ modalCross[0].addEventListener ("click", closeModal);
 
 
 
+
 //--------------------------------Formular Validation--------------------------------
 
-// form must be valide when user click on "submit"
+// form must be valide when user click on "c'est partit"
+// Here are defined most const i need 
 const form = document.getElementById ('form');
 const firstName = document.getElementById ('first');
 const lastName = document.getElementById ('last');
@@ -52,19 +55,28 @@ const dateFormat = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
 const numbers = /^[0-9]+$/;
 
 
-
-
-const validation = document.getElementById ('checkbox1')
+/*  Here we use "getElementById" to find the Id who is defined in my HTML for all my errors  **    
+**  All the const are used later so we will be capable of throw an Error message             */
+                       
+// const used for checkbox error
+const validation = document.getElementById ('checkbox')
+// const used for First name Error
 const firstError = document.getElementById ('first-error');
+// const used for Last Error
 const lastError = document.getElementById ('last-error');
+// const used for Mail Error
 const mailError = document.getElementById ('mail-error');
+// const used for Birth Error
 const birthError = document.getElementById ('birth-error');
+// const used for Quantity error
 const quantityError = document.getElementById ('quantity-error');
+// const used for City Error
 const cityError = document.getElementById ('city-error');
+// const used for Validation Error
 const validationError = document.getElementById ('validation-error');
 
 const confirmation = document.getElementById ('confirmation');
-const confirmCloseBtn = document.getElementsByClassName('btn-close');
+const closeBtn = document.getElementsByClassName('btn-close');
 
 
 
@@ -73,9 +85,9 @@ form.addEventListener('submit', (e) => {
   validate();
 })
 
-/*  Here are defined all the variable who need checked and true on verification                  **    
-**  All the value are checked, Regex are defined for eMail - birth date - Quantity - Date Format **
-**  If the values are inccorect then an error is return with a error message                     */
+/*  Here is the function "validate" all variables needs to be checked and true on verification    **    
+**  All the values are checked, Regex are defined for eMail - birth date - Quantity - Date Format **
+**  If values are inccorect then an error is return with an error message                         */                        
 
 function validate () {
   console.log ("validation formulaire");
@@ -156,17 +168,24 @@ function validate () {
   if (!validation.checked) {
     validationError.classList.add('error');
     validationError.textContent = ("Vous devez acceptez les termes et conditions");
-    validationError.style.border = 'solid red 2px';
+    validationError.style.border = 'red 2px';
     
   } else {
     validationError.style.display = 'none';
     checkedCondition = true;
   }
 
-  
   if (checkedFirst == true && checkedLast == true && checkedMail == true && checkedTournament == true && checkedRadio == true && checkedCondition == true && checkedBirth == true) {
+    confirmation.classList.add('confirm-window');
+    form.style.display = "none";
+    
+    confirmation.style.display = "flex";
     console.log("Participation enregistrer Bravo !!");
+    
   }
-
+ 
 }
 
+
+// Close modal form
+closeBtn[0].addEventListener("click", closeModal);
