@@ -90,7 +90,7 @@ form.addEventListener('submit', (e) => {
 **  If values are inccorect then an error is return with an error message                         */                        
 
 function validate () {
-  console.log ("validation formulaire");
+  
   let checkedFirst;
   let checkedLast;
   let checkedMail;

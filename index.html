@@ -14,7 +14,7 @@
   <body>
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
-      <img alt="logo" src="Logo.png" width="auto" height="auto" />
+      <img alt="logo" class="logo" src="Logo.png" width="auto" height="auto" />
     </div>
     <div class="main-navbar">
       
@@ -45,7 +45,7 @@
           </button>
         </div>
         <div class="hero-img">
-          <img src="./bg_img.jpg" alt="img" />
+          <img src="./bg_img.jpg" class="cover" alt="img" />
         </div>
         <button class="btn-signup modal-btn">
           je m'inscris
@@ -203,6 +203,7 @@
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
                 <br>
+                <div id="validation-error"></div>
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
@@ -210,7 +211,7 @@
                 </label>
                 <br>
               </div>
-              <div id="validation-error"></div>
+              
               <input
                 class="btn-submit"
                 type="submit"
